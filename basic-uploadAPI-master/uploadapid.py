@@ -10,7 +10,7 @@ import time
 import importlib
 from http.server import HTTPServer
 
-from genericdaemon import Daemon
+from d import Daemon
 import uploadapi
 
 

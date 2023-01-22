@@ -12,7 +12,7 @@ import errno
 import cgi
 import hashlib
 
-C_ROOT_FOLDER = "/home/nuser/Documents/0x428a2f98"  # constant for dubuging
+C_ROOT_FOLDER = "~/Documents/"  # constant for dubuging
 
 
 def md5(data):
