@@ -1,12 +1,34 @@
+# uploadAPI/ doctor web
+HTTP API that supports POST requests on: /download /delete /upload
+
+Task requirements have been daemonizing server, specific storage structure. Serving GETs is not part of the doctor web task.
+
+default (hardcoded):
+
+uploadapi.py: localhost:5050, ~/Documents/
+
+uploadapid.py: localhost:4040
+# Structure
+uploadapi.py: 
+
+	UploadAPIHandler - requst handler for HTTPServer
+
+d.py:
+ 
+	Daemon - generic daemon class by Sander Marechal
+
+uploadapid.py: 
+
+	APIDaemon - daemonizing HTTPServer initialized with UploadAPIHandler
 # Usage:
 ## start httpserver daemon:
 ```
-python apidaemon.py start
+python uploadapid.py start
 ```
  other commands:
 ```
-[nuser@host0x428a2f98 temp-proj-a]$ python apidaemon.py
-usage: apidaemon.py start|status|stop|restart
+[nuser@host0x428a2f98 temp-proj-a]$ python uploadapid.py
+usage: uploadapid.py start|status|stop|restart
 ```
 ## /download:
 ```
@@ -34,10 +56,17 @@ README.md file deleted. /store/05/05698f7b1d3cc945aaa616d6edfc578d/ folder delet
 ```
 curl -F file=@<filepath> 127.0.0.1:<port>/upload
 ``` 
- POST /upload & GET / example:
+ POST /upload :
 ```
 [nuser@host0x428a2f98 Downloads]$ curl -F file=@README.md 127.0.0.1:5050/upload
 upload endpoint. </br> file md5 hash: [05698f7b1d3cc945aaa616d6edfc578d]
+```
+## /:
+
+ debug form on http://127.0.0.1/
+
+ GET /:
+```
 [nuser@host0x428a2f98 Downloads]$ curl 127.0.0.1:5050/
 <html>
 <body>
